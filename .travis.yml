@@ -6,4 +6,14 @@ before_install:
   - docker build -t yatinqss/frontend-travis -f Dockerfile.dev .
 
 scripts:
-  - docker run -e CI=true yatinqss/frontend-travis npm run test
+  - docker run -e CI=true yatinqss/frontend-travis npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "frontend"
+  env: "Frontend-env"
+  bucket_name: "elasticbeanstalk-us-east-1-676086224103"
+  bucket_path: "frontend"
+  on:
+    branch: master
