@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t yatinqss/frontend-travis -f Dockerfile.dev .
+
+scripts:
+  - docker run -e CI=true yatinqss/frontend-travis npm run test
