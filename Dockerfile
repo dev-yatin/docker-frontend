@@ -1,3 +1,4 @@
+# Production Dockerfile
 # In Dockerfile there can be only one FROM. If you want to use more than 1 FROM then you have to block that
 # as I have done it. I have blocked by name builder. This will also help us to fetch resource from this 
 #builder container in another container. NOTE this blocked container will not be part of actual image. 
